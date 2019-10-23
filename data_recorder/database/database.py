@@ -25,7 +25,7 @@ class Database(object):
         Initiate database connection
         :return: (void)
         """
-        print("init_db_connection for {}...".format(self.sym))
+        print("init_db_connection for {0}，arctic_name is {1}...".format(self.sym, ARCTIC_NAME))
         try:
             self.db = Arctic(MONGO_ENDPOINT)
             self.db.initialize_library(ARCTIC_NAME, lib_type=TICK_STORE)

@@ -1,7 +1,7 @@
 venv
 
 *.csv
-
+*.pyc
 .idea
 
 build

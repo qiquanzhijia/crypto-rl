@@ -17,11 +17,11 @@ class MarketOrderTestCases(unittest.TestCase):
 
         self.assertEqual(1, test_position.long_inventory.position_count)
         print('LONG Unrealized_pnl: %f' % test_position.long_inventory.get_unrealized_pnl(
-            midpoint=midpoint))
+            price=midpoint))
 
         self.assertEqual(0, test_position.short_inventory.position_count)
         self.assertEqual(0., test_position.short_inventory.get_unrealized_pnl(
-            midpoint=midpoint))
+            price=midpoint))
 
         order_close = MarketOrder(ccy='BTC-USD', side='long',
                                   price=midpoint + (midpoint * fee * 5), step=100)
@@ -29,11 +29,11 @@ class MarketOrderTestCases(unittest.TestCase):
         test_position.remove(order=order_close)
         self.assertEqual(0, test_position.long_inventory.position_count)
         print('LONG Unrealized_pnl: %f' % test_position.long_inventory.get_unrealized_pnl(
-            midpoint=midpoint))
+            price=midpoint))
 
         self.assertEqual(test_position.short_inventory.position_count, 0)
         self.assertEqual(
-            test_position.short_inventory.get_unrealized_pnl(midpoint=midpoint), 0.)
+            test_position.short_inventory.get_unrealized_pnl(price=midpoint), 0.)
         print('LONG Realized_pnl: %f' % test_position.realized_pnl)
 
     def test_case_two(self):
@@ -48,10 +48,10 @@ class MarketOrderTestCases(unittest.TestCase):
         self.assertEqual(1, test_position.short_inventory.position_count)
         self.assertEqual(0, test_position.long_inventory.position_count)
         self.assertEqual(0., test_position.long_inventory.get_unrealized_pnl(
-            midpoint=midpoint))
+            price=midpoint))
         print(
             'SHORT Unrealized_pnl: %f' % test_position.short_inventory.get_unrealized_pnl(
-                midpoint=midpoint))
+                price=midpoint))
 
         order_close = MarketOrder(ccy='BTC-USD', side='short',
                                   price=midpoint - (midpoint * fee * 15), step=100)
@@ -59,10 +59,10 @@ class MarketOrderTestCases(unittest.TestCase):
         self.assertEqual(0, test_position.short_inventory.position_count)
         self.assertEqual(0, test_position.long_inventory.position_count)
         self.assertEqual(0., test_position.long_inventory.get_unrealized_pnl(
-            midpoint=midpoint))
+            price=midpoint))
         print(
             'SHORT Unrealized_pnl: %f' % test_position.short_inventory.get_unrealized_pnl(
-                midpoint=midpoint))
+                price=midpoint))
         print('SHORT Realized_pnl: %f' % test_position.realized_pnl)
 
     def test_case_three(self):

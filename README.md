@@ -46,7 +46,7 @@ tensorboard==1.13.1
 tensorflow-estimator==1.13.0
 tensorflow-gpu==1.13.1
 ```
-
+`pip install -r requirements/requirements_tf.txt`
 
 ## 4. Project Structure
 The key elements in this project and brief descriptions.
@@ -135,7 +135,7 @@ is in your database.
 
 Example to export features to a compressed csv:
 ```
-python3 data_recorder/tests/test_simulator.py
+python3 data_recorder/tests/test_extract_features.py
 ```
 
 ### 6.3 Train an agent
@@ -149,7 +149,7 @@ into that folder, see refer to the section above
 **Step 2:**
 Open a CLI/terminal and start learning/training the agent. 
 ```
-python3 experiment.py --window_size=50 --weights=False --...
+python3 experiment.py --window_size=50 --weights=False --fitting_file=...
 ```
 Refer to `experiment.py` to see all the keyword arguments.
 

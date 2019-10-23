@@ -17,7 +17,7 @@ def test_get_tick_history():
         'end_date': 20190102
     }
     tick_history = sim.db.get_tick_history(query=query)
-    print('\n{}\n'.format(tick_history))
+    print('\n tick_history is {}\n'.format(tick_history))
 
     elapsed = (dt.now(TIMEZONE) - start_time).seconds
     print('Completed %s in %i seconds' % (__name__, elapsed))
